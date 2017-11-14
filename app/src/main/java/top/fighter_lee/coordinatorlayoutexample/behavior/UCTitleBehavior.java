@@ -36,8 +36,8 @@ public class UCTitleBehavior extends CoordinatorLayout.Behavior<TextView> {
             Log.d(TAG, "onDependentViewChanged: "+title_height+","+child.getY());
         }
         float percent = dependency.getY() / startY;
-        Log.d(TAG, "onDependentViewChanged: " + percent+","+dependency.getY());
-        child.setY(title_height * percent);
+        Log.d(TAG, "onDependentViewChanged: " + percent);
+        child.setTranslationY(title_height*(percent-1));
         return super.onDependentViewChanged(parent, child, dependency);
     }
 }

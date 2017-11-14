@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             >
 
             <ImageView
@@ -30,6 +30,7 @@
                 android:fitsSystemWindows="true"
                 android:adjustViewBounds="true"
                 android:src="@mipmap/ic_bg"
+                android:id="@+id/uc_iv"
                 app:layout_collapseMode="parallax"
                 android:scaleType="fitXY"
                 app:layout_collapseParallaxMultiplier="0.5"
@@ -40,11 +41,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="bottom|center_horizontal"
-                android:background="@color/colorPrimary"
+                android:background="#e0000000"
                 android:orientation="vertical"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.3"
-                />
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="介绍：xxxxxx"/>
+            </FrameLayout>
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -57,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_anchor="@id/frameLayout"
+        app:layout_anchorGravity="top"
         app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <TextView
@@ -71,11 +80,12 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_anchor="@id/frameLayout"
+        app:layout_anchorGravity="center|top"
         android:layout_margin="@dimen/fab_margin"
-        app:layout_behavior="@string/TranslateUpDownBehavior"
+        app:layout_behavior="top.fighter_lee.coordinatorlayoutexample.behavior.CenterViewBehavior"
         app:srcCompat="@android:drawable/ic_dialog_email"/>
 
 </android.support.design.widget.CoordinatorLayout>
